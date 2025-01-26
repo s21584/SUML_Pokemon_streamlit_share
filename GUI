@@ -1,0 +1,27 @@
+import streamlit as st
+from PIL import Image
+from transformers import BlipProcessor, BlipForConditionalGeneration
+
+@st.cache_resource
+def load_model():
+    model = BlipForConditionalGeneration.from_pretrained("RidzIn/Pokemon-Describer")
+    processor = BlipProcessor.from_pretrained("RidzIn/Pokemon-Describer")
+    return processor, model
+
+processor, model = load_model()
+
+def generate_description(image):
+    inputs = processor(images=image, return_tensors="pt")
+    output = model.generate(**inputs)
+    return processor.decode(output[0], skip_special_tokens=True)
+
+uploaded_file = st.file_uploader("Upload a Pokemon image", type=["png", "jpg"])
+
+if uploaded_file:
+    image = Image.open(uploaded_file)
+    st.image(image, caption="Uploaded Image", use_column_width=True)
+
+    if st.button("Generate Description"):
+        description = generate_description(image)
+        st.write("Description:")
+        st.write(description)
