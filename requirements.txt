@@ -9,3 +9,6 @@ langchain-core~=0.3.29
 langchain-openai~=0.3.0
 python-dotenv~=1.0.1
 tqdm~=4.67.1
+evaluate~=0.4.3
+sentence-transformers~=3.4.0
+tf-keras==2.18.0
