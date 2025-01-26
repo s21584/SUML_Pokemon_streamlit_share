@@ -76,3 +76,59 @@ This sentence-transformers model maps sentences and paragraphs to a 384-dimensio
 Achieved 68% similarity score.
 
 Considering the context window limitations and the fact that training samples often exceeded the model's capacity, this score is a strong indicator of the model's ability to generate meaningful descriptions.
+
+# Desktop Aplication description
+This project is a desktop application built with Python that leverages machine learning to generate textual descriptions of Pokemon from uploaded images. The application includes a graphical user interface (GUI) for user interaction, allowing users to upload RGB images of Pokemon in JPG or PNG formats and generate descriptions using a pre-trained machine learning model. The application is packaged as a Docker container to ensure portability and ease of deployment.
+
+## Features
+1. Upload Images: Users can upload RGB images of Pokemon in JPG or PNG formats.
+
+2. Generate Descriptions: A pre-trained machine learning model generates textual descriptions of the Pokemon in the uploaded image.
+
+3. User-Friendly Interface: The application uses a GUI for user interaction.
+
+4. Dockerized Environment: The application is containerized with Docker to ensure full portability and platform independence.
+
+## System Requirements
+
+* Supported Operating Systems: Windows, macOS, Linux
+
+* Docker
+
+## Libraries
+
+The following Python libraries are meant to be used in this project:
+
+Core libraries
+
+1. Tkinter: creating the graphical user interface.
+
+    o Provides an easy-to-use framework for building desktop applications.
+
+2. Pillow: image loading and processing.
+
+    o Allows reading and processing JPG and PNG images.
+
+3. (Tensorflow?, PyTorch?): running the pre-trained machine learning model
+
+4. Numpy: potential image data storing and processing
+
+## Application Usage
+
+GUI Components
+
+* Upload Button: Opens a file dialog to select an image of a Pokemon (JPG or PNG).
+
+* Generate Description Button: Initiates the process of generating the Pokemon description.
+
+* Output Box: Displays the generated description.
+
+Workflow
+
+1. Launch the application.
+
+2. Click the Upload button and select an image of a Pokemon.
+
+3. Click the Generate Description button.
+
+4. View the generated description in the output box.
