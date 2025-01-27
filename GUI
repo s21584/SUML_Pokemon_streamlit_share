@@ -1,1 +1,26 @@
- 
+import streamlit as st
+from PIL import Image
+from model_api import invoke_model
+
+def generate_description(image_path):
+    try:
+        result = invoke_model(model_name="RidzIn/Pokemon-Describer", image_path=image_path)
+        return result["generated_description"]
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+st.title("Pokemon Image Describer")
+
+uploaded_file = st.file_uploader("Upload a Pokemon image", type=["png", "jpg"])
+
+if uploaded_file:
+    image = Image.open(uploaded_file).convert("RGB")
+    st.image(image, caption="Uploaded Image", use_column_width=True)
+
+    image_path = "image.png"
+    image.save(image_path)
+
+    if st.button("Generate Description"):
+        description = generate_description(image_path)
+        st.write("Description:")
+        st.write(description)
