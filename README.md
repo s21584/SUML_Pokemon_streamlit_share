@@ -109,7 +109,7 @@ Core libraries
 
     o Allows reading and processing JPG and PNG images.
 
-3. (Tensorflow?, PyTorch?): running the pre-trained machine learning model
+3. (PyTorch): running the pre-trained machine learning model
 
 4. Numpy: potential image data storing and processing
 
