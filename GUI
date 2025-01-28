@@ -2,24 +2,52 @@ import streamlit as st
 from PIL import Image
 from model_api import invoke_model
 
-def generate_description(image_path):
+# -----------------------------------------------------------------------------
+# Description Generation
+# -----------------------------------------------------------------------------
+def generate_description(image_path: str) -> str:
+    """
+    Generates a textual description for a given Pokémon image using the 
+    'RidzIn/Pokemon-Describer' model.
+
+    Args:
+        image_path (str): The path to the image file on the local system.
+
+    Returns:
+        str:
+            If successful, returns the generated description.
+            Otherwise, returns an error message with details.
+    """
     try:
-        result = invoke_model(model_name="RidzIn/Pokemon-Describer", image_path=image_path)
+        # Invoke the BLIP-based model to generate the image caption
+        result = invoke_model(
+            model_name="RidzIn/Pokemon-Describer",
+            image_path=image_path
+        )
         return result["generated_description"]
     except Exception as e:
+        # Return an error message if an exception is raised
         return f"Error: {str(e)}"
 
-st.title("Pokemon Image Describer")
 
-uploaded_file = st.file_uploader("Upload a Pokemon image", type=["png", "jpg"])
+# -----------------------------------------------------------------------------
+# Streamlit UI
+# -----------------------------------------------------------------------------
+st.title("Pokémon Image Describer")
+
+# Allow the user to upload a PNG or JPG image of a Pokémon
+uploaded_file = st.file_uploader("Upload a Pokémon image", type=["png", "jpg"])
 
 if uploaded_file:
+    # Display the uploaded image
     image = Image.open(uploaded_file).convert("RGB")
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
+    # Save the uploaded image to a temporary local file
     image_path = "image.png"
     image.save(image_path)
 
+    # Generate a description when the user clicks the button
     if st.button("Generate Description"):
         description = generate_description(image_path)
         st.write("Description:")
