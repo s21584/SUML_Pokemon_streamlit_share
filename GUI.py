@@ -45,6 +45,8 @@ if uploaded_file:
 
     # Button triggers the model to generate a description
     if st.button("Generate Description"):
-        description = generate_description(image_path)
+        st.spinner()
+        with st.spinner(text='Generating description...'):
+            description = generate_description(image_path)
         st.write("Description:")
         st.write(description)
