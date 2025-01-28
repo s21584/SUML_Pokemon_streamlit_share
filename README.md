@@ -137,5 +137,7 @@ Workflow
 
 # Streamlit UI
 
+Application uses StreamLit UI and is also available on [StreamLitShare](https://sumlpokemon.streamlit.app/)!
+
 ![image](https://github.com/user-attachments/assets/1dd7c665-dad4-4d70-837c-193073927b80)
 ![image](https://github.com/user-attachments/assets/08985cd7-9b31-4793-9cd2-b55a309b32a8)
