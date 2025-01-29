@@ -14,4 +14,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8080
 
 # Run the app
+
 CMD ["streamlit", "run", "./GUI.py", "--server.port", "8080"]
+
