@@ -126,7 +126,7 @@ GUI Components
 
 Workflow
 
-1. Launch the application.
+1. Launch the application by running a script called run_docker_app.bat while your docker is turned on.
 
 2. Click the Upload button and select an image of a Pokemon.
 
