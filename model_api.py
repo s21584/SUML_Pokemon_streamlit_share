@@ -60,7 +60,7 @@ def invoke_model(
 
     # Generate caption
     with torch.no_grad():
-        generated_ids = model.generate(**inputs)
+        generated_ids = model.generate(**inputs, max_length=128)
         generated_text: str = processor.decode(generated_ids[0], skip_special_tokens=True)
 
     return {
@@ -107,7 +107,7 @@ def invoke_batch(
 
     # Generate captions for each image
     with torch.no_grad():
-        generated_ids = model.generate(**inputs)
+        generated_ids = model.generate(**inputs, max_length=128)
         for i in range(generated_ids.shape[0]):
             generated_text: str = processor.decode(generated_ids[i], skip_special_tokens=True)
             result["generated_descriptions"].append(generated_text)
