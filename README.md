@@ -139,5 +139,18 @@ Workflow
 
 Application uses StreamLit UI and is also available on [StreamLitShare](https://sumlpokemon.streamlit.app/)!
 
+to use locally with docker:
+1. Clone this repository
+
+2. Run terminal in repository with following command
+```docker build -t poke-smart .```
+
+3. Wait for the docker to build and after run:
+```docker run -p 8080:8080 poke-smart```
+
+4. Access localhost:8080/
+
+5. Have fun!
+
 ![image](https://github.com/user-attachments/assets/1dd7c665-dad4-4d70-837c-193073927b80)
 ![image](https://github.com/user-attachments/assets/08985cd7-9b31-4793-9cd2-b55a309b32a8)
